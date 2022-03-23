@@ -1,0 +1,35 @@
+﻿@model IEnumerable<LibraryDAL.Models.Article>
+
+@{
+    ViewBag.Title = "Articles";
+}
+<div class="row">
+    <h2>Articles</h2>
+</div>
+<hr />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@foreach (var item in Model)
+{
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+        </div>
+        <div class="col-md-3">
+            <p class="d-flex justify-content-evenly">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </p>
+            <p class="d-flex justify-content-around">@Html.DisplayFor(modelItem => item.CreationDate)</p>
+        </div>
+    </div>
+    <div class="col-md-9 text-md-start">@Html.Raw(item.Content.Substring(0, item.Content.Length > 200 ? 200 : item.Content.Length))</div>
+    <div class="row">
+        @Html.ActionLink("See more", "Details", new { id = item.Id })
+    </div>
+    if (item != Model.Last())
+    {
+        <hr />
+    }
+}

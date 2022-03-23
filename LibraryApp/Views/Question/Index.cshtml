@@ -1,0 +1,74 @@
+﻿@model LibraryDAL.Models.Question
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Questionnaire</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group mb-md-3">
+            @Html.LabelFor(model => model.UserName, "Your name: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-md-3">
+            @Html.LabelFor(model => model.FavAuthor, "Your favorite author: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FavAuthor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FavAuthor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-md-3">
+            @Html.LabelFor(model => model.FavBook, "Your favorite book: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FavBook, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FavBook, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="mb-md-3">
+            Check books you have read already:
+            <div class="form-check">
+                @Html.LabelFor(model => model.Hobbit, "The Hobbit by J. R. R. Tolkien", htmlAttributes: new { @class = "form-check-label" })
+                @Html.CheckBoxFor(model => model.Hobbit, new { @class = "form-check-input" })
+                @Html.ValidationMessageFor(model => model.Hobbit, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-check">
+                @Html.LabelFor(model => model.HarryPotter, "Harry Potter and the Philosopher's Stone by J. K. Rowling", htmlAttributes: new { @class = "form-check-label" })
+                @Html.CheckBoxFor(model => model.HarryPotter, new { @class = "form-check-input" })
+                @Html.ValidationMessageFor(model => model.HarryPotter, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-check">
+                @Html.LabelFor(model => model.TheLittlePrince, "The Little Prince by Antoine de Saint-Exupéry", htmlAttributes: new { @class = "form-check-label" })
+                @Html.CheckBoxFor(model => model.TheLittlePrince, new { @class = "form-check-input" })
+                @Html.ValidationMessageFor(model => model.TheLittlePrince, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-check">
+                @Html.LabelFor(model => model.DreamOfTheRed, "Dream of the Red Chamber by Cao Xueqin", htmlAttributes: new { @class = "form-check-label" })
+                @Html.CheckBoxFor(model => model.DreamOfTheRed, new { @class = "form-check-input" })
+                @Html.ValidationMessageFor(model => model.DreamOfTheRed, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-check form-switch mb-md-3">
+            @Html.LabelFor(model => model.IsSiteHelpful, "Was our site helpful at all?", htmlAttributes: new { @class = "form-check-label" })
+            @Html.CheckBoxFor(model => model.IsSiteHelpful, new { @class = "form-check-input" })
+            @Html.ValidationMessageFor(model => model.IsSiteHelpful, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Send Answer" class="btn btn-primary col-md-3" />
+        </div>
+    </div>
+}

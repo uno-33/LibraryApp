@@ -1,0 +1,72 @@
+﻿@model LibraryDAL.Models.Question
+
+@{
+    ViewBag.Title = "Thank you for answering!";
+}
+
+<h2>Thank you for answering!</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Your name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            Your favorite author
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavAuthor)
+        </dd>
+
+        <dt>
+            Your favorite book
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavBook)
+        </dd>
+
+        <dt>
+            The Hobbit by J. R. R. Tolkien
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hobbit)
+        </dd>
+
+        <dt>
+            Harry Potter and the Philosopher's Stone by J. K. Rowling
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HarryPotter)
+        </dd>
+
+        <dt>
+            The Little Prince by Antoine de Saint-Exupéry
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLittlePrince)
+        </dd>
+
+        <dt>
+            Dream of the Red Chamber by Cao Xueqin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DreamOfTheRed)
+        </dd>
+
+        <dt>
+            You're @(Model.IsSiteHelpful ? "satisfied" : "not satisfied") with our site.
+        </dt>
+    </dl>
+</div>
